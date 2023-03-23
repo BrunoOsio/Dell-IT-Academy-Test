@@ -1,4 +1,4 @@
-package itacademy.data;
+package itacademy.model.cities;
 
 public enum Cities {
   ARACAJU(0),

@@ -6,6 +6,8 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
+import itacademy.model.cities.Cities;
+
 public class CitiesCSVReader {
 
   private static final String LOCAL_PROJECT_DIRECTORY = System.getProperty("user.dir");
@@ -18,7 +20,7 @@ public class CitiesCSVReader {
     String currentRowData;
     int currentRowIndex = 0;
     Integer result = null;
-
+    
     try {
       BufferedReader buffer = new BufferedReader(new FileReader(FULLPATH));
       skipHeaderLine(buffer);
