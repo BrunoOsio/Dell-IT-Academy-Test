@@ -14,7 +14,7 @@ public class CitiesCSVReader {
   private static final String FULLPATH = String.format("\\%s\\%s", PATH_TO_CSV, CSV_NAME);
   private static final String CSV_SEPARATOR = ",";
 
-  public static Integer getCitiesDistanceMeters(Cities firstCity, Cities secondCity) {
+  public static Integer getCitiesDistanceKilometers(Cities firstCity, Cities secondCity) {
     String currentRowData;
     int currentRowIndex = 0;
     Integer result = null;
