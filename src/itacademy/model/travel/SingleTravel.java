@@ -6,7 +6,14 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import itacademy.common.utils.ListUtils;
+import itacademy.model.items.Chair;
+import itacademy.model.items.Freezer;
 import itacademy.model.items.Item;
+import itacademy.model.items.ItemNames;
+import itacademy.model.items.Lighting;
+import itacademy.model.items.Refrigerator;
+import itacademy.model.items.SmartPhone;
+import itacademy.model.items.WashingMachine;
 import itacademy.model.trucks.BigTruck;
 import itacademy.model.trucks.MediumTruck;
 import itacademy.model.trucks.SmallTruck;
@@ -21,15 +28,20 @@ public class SingleTravel {
 
   private Setpoint setpoint;
   private List<Truck> trucks;
-  private List<Item> items;
+  private List<Item> initialItems;
+  private List<Item> outputItems;
+  private List<Item> finalItems;
 
   private double weight;
   private double price;
 
-  public SingleTravel(Setpoint setpoint, List<Item> items) {
+  public SingleTravel(Setpoint setpoint, List<Item> initialItems, List<Item> outputItems) {
     this.setpoint = setpoint;
 
-    this.items = items;
+    this.initialItems = initialItems;
+    this.outputItems = outputItems;
+    this.finalItems = this.calculateFinalItems();
+
 
     this.setWeight(this.calculateWeight());
 
@@ -45,7 +57,7 @@ public class SingleTravel {
   }
 
   public List<Item> getItems() {
-    return this.items;
+    return this.initialItems;
   }
 
   public double getWeight() {
@@ -54,7 +66,7 @@ public class SingleTravel {
 
   private double calculateWeight() {
 
-    double totalWeight = items.stream()
+    double totalWeight = initialItems.stream()
       .map(item -> item.getTotalWeight())
       .reduce(INITIAL_WEIGHT, Double::sum);
     
@@ -87,6 +99,43 @@ public class SingleTravel {
 
   public void setPrice(double price) {
     this.price = price;
+  }
+
+  public List<Item> calculateFinalItems() {
+    List<Item> finalItems = new ArrayList<>();
+    System.out.println("entrou");
+
+    for (Item output : this.outputItems) {
+      for (Item input : this.initialItems) {
+        if (output.getName().equals(input.getName())) {
+          switch (input.getName()) {
+            case REFRIGERATOR:
+              finalItems.add(new Refrigerator(input.getQuantity() - output.getQuantity()));
+              break;
+            case CHAIR:
+              finalItems.add(new Chair(input.getQuantity() - output.getQuantity()));
+              break;
+            case FREEZER:
+              finalItems.add(new Freezer(input.getQuantity() - output.getQuantity()));
+              break;
+            case LIGHTING:
+              finalItems.add(new Lighting(input.getQuantity() - output.getQuantity()));
+              break;
+            case SMARTPHONE:
+              finalItems.add(new SmartPhone(input.getQuantity() - output.getQuantity()));
+              break;
+            case WASHING_MACHINE:
+              finalItems.add(new WashingMachine(input.getQuantity() - output.getQuantity()));
+              break;
+          }
+        }
+      }
+    }
+
+    System.out.println("initial items: " + initialItems);
+    System.out.println("final items: " + finalItems);
+    
+    return finalItems;
   }
 
   //TODO: Improve calculate trucks

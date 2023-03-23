@@ -1,7 +1,8 @@
 package itacademy.model.items;
 
 public class Chair extends Item {
-  private static final String NAME = "CADEIRA";
+  //TODO: make enum of words
+  private static final ItemNames NAME = ItemNames.CHAIR;
   private static final double WEIGHT_KG = 5.0;
 
   public Chair(int quantity) {

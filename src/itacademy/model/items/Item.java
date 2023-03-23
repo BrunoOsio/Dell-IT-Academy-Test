@@ -1,7 +1,7 @@
 package itacademy.model.items;
 
 public abstract class Item {
-  private String name;
+  private ItemNames name;
   private double weight;
   private int quantity;
 
@@ -9,11 +9,11 @@ public abstract class Item {
     this.setQuantity(quantity);
   }
 
-  public String getName() {
+  public ItemNames getName() {
     return name;
   }
 
-  public void setName(String name) {
+  public void setName(ItemNames name) {
     this.name = name;
   }
 

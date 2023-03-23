@@ -1,7 +1,7 @@
 package itacademy.model.items;
 
 public class Lighting extends Item {
-  private static final String NAME = "CADEIRA";
+  private static final ItemNames NAME = ItemNames.LIGHTING;
   private static final double WEIGHT_KG = 0.8;
 
   public Lighting(int quantity) {

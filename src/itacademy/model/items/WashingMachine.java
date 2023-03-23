@@ -1,7 +1,7 @@
 package itacademy.model.items;
 
 public class WashingMachine extends Item {
-  private static final String NAME = "MÁQUINA DE LAVAR ROUPA";
+  private static final ItemNames NAME = ItemNames.WASHING_MACHINE;
   private static final double WEIGHT_KG = 120;
 
   public WashingMachine(int quantity) {
