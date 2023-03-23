@@ -18,4 +18,9 @@ public abstract class Truck {
   public void setPricePerKilometer(double pricePerKilometer) {
     this.pricePerKilometer = pricePerKilometer;
   }
+
+  @Override
+  public String toString() {
+    return "Truck [maxLoadWeight=" + maxLoadWeight + ", pricePerKilometer=" + pricePerKilometer + "]";
+  }
 }

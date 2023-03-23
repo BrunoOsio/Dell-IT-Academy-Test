@@ -1,6 +1,7 @@
-package itacademy.model.cities;
+package itacademy.model.travel;
 
 import itacademy.data.CitiesCSVReader;
+import itacademy.model.cities.Cities;
 
 public class Setpoint {
   private Cities sourceCity;

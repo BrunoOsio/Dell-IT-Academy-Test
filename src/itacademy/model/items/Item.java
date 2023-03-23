@@ -36,4 +36,9 @@ public abstract class Item {
   public double getTotalWeight() {
     return this.weight * this.getQuantity();
   }
+
+  @Override
+  public String toString() {
+    return "Item [name=" + name + ", weight=" + weight + ", quantity=" + quantity + "]";
+  }
 }
