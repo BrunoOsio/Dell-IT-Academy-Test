@@ -4,6 +4,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import itacademy.model.cities.Cities;
+import itacademy.model.items.Item;
 
 public class IoUtils {
 
@@ -106,6 +107,45 @@ public class IoUtils {
     return number;
   }
 
+  public static int inputItemNumber(String message) {
+    int number = 0;
+
+    final int firstItem = 1;
+    final int lastItem = 6;
+
+    boolean validInput = false;
+
+    while (!validInput) {
+      String keyboard = inputText(message);
+
+      try {
+
+        boolean isNumber = keyboard.matches("^[0-9]+$");
+
+        if (!isNumber) {
+          text("Digite um número válido");
+          continue;
+        }
+
+        int checkItemNumber = Integer.parseInt(keyboard);
+        boolean isItemNumber = checkItemNumber >= firstItem && checkItemNumber <= lastItem;
+
+        if(!isItemNumber) {
+          text("Digite um item válido");
+          continue;
+        }
+      
+        validInput = true;
+        number = Integer.parseInt(keyboard) - BACK_TO_ZERO_INDEX_PATTERN;
+
+      } catch (NumberFormatException e) {
+        e.printStackTrace();
+      }
+    }
+
+    return number;
+  }
+
   public static boolean inputDecision(String message) {
     boolean decision = false;
     boolean validInput = false;
@@ -171,5 +211,24 @@ public class IoUtils {
     textFormatted("selecionado: %s", Cities.getStringName(city));
 
     return city;
+  }
+
+  public static void showItems() {
+    IoUtils.space();
+    IoUtils.text("1 - CADEIRA               4 - GELADEIRA");
+    IoUtils.text("2 - FREEZER               5 - CELULAR");
+    IoUtils.text("3 - LUMINARIA             6 - MAQUINA DE LAVAR ROUPA");
+  }
+
+  public static Item inputItem() {
+    space();
+
+    int selectedItem = inputItemNumber("");
+
+    Item item = Item.getByIndex(selectedItem);
+
+    textFormatted("selecionado: %s", Item.getStringName(item));
+
+    return item;
   }
 }

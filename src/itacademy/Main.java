@@ -5,12 +5,16 @@ import java.util.List;
 
 import itacademy.io.IoUtils;
 import itacademy.model.cities.Cities;
+import itacademy.model.items.Item;
 import itacademy.model.travel.Setpoint;
 
 public class Main {
 
   private static final boolean IS_NEXT_ROUTE = true;
+  private static final boolean IS_NEXT_ITEM = true;
+
   private static final boolean IS_LAST_ROUTE = false;
+  private static final boolean IS_LAST_ITEM = false;
 
   private static String username;
 
@@ -75,10 +79,13 @@ public class Main {
     //Item
 
     IoUtils.clearTerminal();
+    boolean isNextItem = IS_NEXT_ITEM;
 
-    IoUtils.text("Selecione a rota inicial");
-    IoUtils.showCities();
-    Cities sourceCity = IoUtils.inputCity();
+    while (isNextItem) {
+      IoUtils.text("Selecione os produtos iniciais");
+      IoUtils.showItems();
+      Item initialItem = IoUtils.inputItem();
+    }
 
     boolean isNextRoute = IS_NEXT_ROUTE;
 
@@ -118,5 +125,7 @@ public class Main {
         isNextRoute = IS_LAST_ROUTE;
       }
     }
+
+    System.out.println(setpoints);
   }
 }
