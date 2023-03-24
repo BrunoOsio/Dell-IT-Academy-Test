@@ -1,5 +1,8 @@
 package itacademy.model.cities;
 
+import java.util.Optional;
+import java.util.stream.Stream;
+
 public enum Cities {
   ARACAJU(0),
   BELEM(1),
@@ -26,6 +29,9 @@ public enum Cities {
   TERESINA(22),
   VITORIA(23);
 
+  private static final String UNDERSCORE ="_";
+  private static final String BLANK_SPACE = " ";
+
   public final int value;
 
   Cities(int value) {
@@ -34,5 +40,43 @@ public enum Cities {
 
   public int get() {
     return this.value;
+  }
+
+  public static Optional<Cities> getByIndex(int targetCityIndex) {
+
+    Optional<Cities> result = null;
+
+    Optional<Cities> optionalCity = Stream.of(Cities.values())
+      .filter(city -> city.get() == targetCityIndex)
+      .findFirst();
+
+    if (optionalCity.isPresent()) {
+      result = optionalCity;
+    }
+
+    return result;
+  }
+
+  public static String getByIndexStringName(int targetCityIndex) {
+
+    Optional<Cities> result = null;
+
+    Optional<Cities> optionalCity = Stream.of(Cities.values())
+      .filter(city -> city.get() == targetCityIndex)
+      .findFirst();
+
+    if (optionalCity.isPresent()) {
+      result = optionalCity;
+    }
+
+    String formattedResult = String.join(BLANK_SPACE, result.get().name().split(UNDERSCORE));;
+
+    return formattedResult;
+  }
+
+  public static String getStringName(Cities city) {
+    String result = String.join(BLANK_SPACE, city.name().split(UNDERSCORE));
+
+    return result;
   }
 }

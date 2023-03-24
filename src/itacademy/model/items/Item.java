@@ -29,6 +29,10 @@ public abstract class Item {
     return quantity;
   }
 
+  public boolean hasQuantity() {
+    return this.quantity > 0;
+  }
+
   public void setQuantity(int quantity) {
     this.quantity = quantity;
   }
@@ -39,6 +43,6 @@ public abstract class Item {
 
   @Override
   public String toString() {
-    return "Item [name=" + name + ", weight=" + weight + ", quantity=" + quantity + "]";
+    return "Item [name=" + name + ", weight=" + weight + ", quantity=" + quantity + "]\n";
   }
 }

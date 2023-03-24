@@ -26,6 +26,7 @@ public class CitiesCSVReader {
       skipHeaderLine(buffer);
 
       while ((currentRowData = buffer.readLine()) != null) {
+        System.out.println("FIRST-CITY " + firstCity);
         boolean isSourceCityRow = currentRowIndex == firstCity.get();
 
         if (isSourceCityRow) {

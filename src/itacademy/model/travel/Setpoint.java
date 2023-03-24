@@ -34,4 +34,12 @@ public class Setpoint {
   public double getDistance() {
     return this.distance;
   }
+
+  @Override
+  public String toString() {
+    return "Setpoint [sourceCity=" + sourceCity + ", destinationCity=" + destinationCity + ", distance=" + distance
+        + "]";
+  }
+
+  
 }
