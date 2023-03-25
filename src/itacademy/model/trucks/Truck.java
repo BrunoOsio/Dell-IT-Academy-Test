@@ -21,6 +21,6 @@ public abstract class Truck {
 
   @Override
   public String toString() {
-    return "Truck [maxLoadWeight=" + maxLoadWeight + ", pricePerKilometer=" + pricePerKilometer + "]\n";
+    return "Truck [maxLoadWeight=" + maxLoadWeight + "]\n";
   }
 }

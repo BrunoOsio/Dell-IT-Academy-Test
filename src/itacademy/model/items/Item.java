@@ -50,22 +50,22 @@ public abstract class Item {
     Item item = null;
 
     switch (index) {
-      case 1:
+      case 0:
         item = new Chair();
         break;
-      case 2:
+      case 1:
         item = new Freezer();
         break;
-      case 3:
+      case 2:
         item = new Lighting();
         break;
-      case 4:
+      case 3:
         item = new Refrigerator();
         break;
-      case 5:
+      case 4:
         item = new SmartPhone();
         break;
-      case 6:
+      case 5:
         item = new WashingMachine();
         break;
     
@@ -85,6 +85,36 @@ public abstract class Item {
 
   @Override
   public String toString() {
-    return "Item [name=" + name + ", weight=" + weight + ", quantity=" + quantity + "]\n";
+    return "Item [name=" + name + "quantity=" + quantity + "]\n";
+  }
+
+  @Override
+  public int hashCode() {
+    final int prime = 31;
+    int result = 1;
+    result = prime * result + ((name == null) ? 0 : name.hashCode());
+    long temp;
+    temp = Double.doubleToLongBits(weight);
+    result = prime * result + (int) (temp ^ (temp >>> 32));
+    result = prime * result + quantity;
+    return result;
+  }
+
+  @Override
+  public boolean equals(Object obj) {
+    if (this == obj)
+      return true;
+    if (obj == null)
+      return false;
+    if (getClass() != obj.getClass())
+      return false;
+    Item other = (Item) obj;
+    if (name != other.name)
+      return false;
+    if (Double.doubleToLongBits(weight) != Double.doubleToLongBits(other.weight))
+      return false;
+    if (quantity != other.quantity)
+      return false;
+    return true;
   }
 }

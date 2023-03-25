@@ -108,7 +108,7 @@ public class SingleTravel {
     return totalWeight;
   }
 
-  public void setWeight(double weight) {
+  private void setWeight(double weight) {
     this.weight = weight;
   }
 
@@ -132,11 +132,11 @@ public class SingleTravel {
     return pricesList;
   }
 
-  public void setPrice(double price) {
+  private void setPrice(double price) {
     this.price = price;
   }
 
-  public List<Item> calculateFinalItems() {
+  private List<Item> calculateFinalItems() {
     List<Item> finalItems = new ArrayList<>();
 
     if (this.outputItems.isEmpty()) {
@@ -182,8 +182,7 @@ public class SingleTravel {
     return finalItems;
   }
 
-  // TODO: Improve calculate trucks
-  public List<Truck> calculateTrucks() {
+  private List<Truck> calculateTrucks() {
     List<Truck> trucks = new ArrayList<>();
 
     double leftWeight = this.weight;
@@ -232,4 +231,12 @@ public class SingleTravel {
 
     return trucks;
   }
+
+  @Override
+  public String toString() {
+    return "SingleTravel [setpoint=" + setpoint + ", initialItems=" + initialItems + ", outputItems=" + outputItems
+        + ", finalItems=" + finalItems + "]";
+  }
+
+  
 }

@@ -19,6 +19,10 @@ public class FullTravel {
     return distance;
   }
 
+  public List<SingleTravel> getTravels() {
+    return this.travels;
+  }
+
   public double getPrice() {
     double price = travels.stream()
       .map(travel -> travel.getPrice())
@@ -28,5 +32,9 @@ public class FullTravel {
     return price;
   }
 
+  @Override
+  public String toString() {
+    return "FullTravel [travels=" + travels + "]";
+  }
 
 }
