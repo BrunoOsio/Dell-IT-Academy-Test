@@ -67,6 +67,12 @@ public class SingleTravel {
     this.setPrice(this.calculatePrice());
   }
 
+  public double getItemUnitaryPrice() {
+    double itemsQuantity = this.initialItems.stream().mapToDouble(Item::getQuantity).sum();
+
+    return this.getPrice() / itemsQuantity;
+  }
+
   public double getDistance() {
     return this.setpoint.getDistance();
   }

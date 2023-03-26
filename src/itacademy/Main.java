@@ -231,20 +231,22 @@ public class Main {
   }
 
   public static void printResults(FullTravel fullTravel) {
-    System.out.println(fullTravel);
+
     fullTravel.getTravels().forEach(travel -> {
       IoUtils.line();
       IoUtils.space();
       System.out.printf("Viagem de %s para %s\n\n", travel.getSourceCity(), travel.getDestinationCity());
       System.out.println("Distância: " + travel.getDistance() + "km");
       System.out.printf("Preço: R$%.2f\n", travel.getPrice());
-      System.out.printf("Peso: %.1f\n", travel.getWeight());
+      System.out.println("Peso: " + travel.getWeight() + "kg");
       IoUtils.space();
 
       System.out.println("Produtos carregados: ");
       travel.getInitialItems().stream().forEach(initial -> {
         System.out.println(initial.getName().get() + " - " + initial.getQuantity() + "x");
       });
+
+      System.out.printf("Preço unitário médio: R$%.2f \n", travel.getItemUnitaryPrice());
 
       IoUtils.space();
       System.out.println("Produtos descarregados: ");
