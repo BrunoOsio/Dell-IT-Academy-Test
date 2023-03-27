@@ -22,7 +22,6 @@ public abstract class Truck {
   public static Truck getByIndex(int index) {
     Truck truck = null;
 
-    System.out.println(index);
     switch(index) {
       case 1:
         truck = new SmallTruck();

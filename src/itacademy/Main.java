@@ -119,10 +119,7 @@ public class Main {
 
       Truck truck = IoUtils.inputTruck();
 
-      System.out.println(truck);
-
       printResults(newSetpoint, truck);
-
     }
   }
 
