@@ -1,8 +1,8 @@
 package itacademy.model.travel;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
+/* Classe que armazena uma viagem completa, como ponto A até B, B até C, e etc. */
 public class FullTravel {
   private List<SingleTravel> travels;
 

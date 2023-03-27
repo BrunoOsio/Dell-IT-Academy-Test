@@ -3,6 +3,8 @@ package itacademy.model.cities;
 import java.util.Optional;
 import java.util.stream.Stream;
 
+/* Enum criado de acordo com o CSV do projeto */
+
 public enum Cities {
   ARACAJU(0),
   BELEM(1),

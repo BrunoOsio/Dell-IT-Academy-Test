@@ -3,6 +3,7 @@ package itacademy.model.travel;
 import itacademy.data.CitiesCSVReader;
 import itacademy.model.cities.Cities;
 
+/* Classe que armazena a cidade origem e a cidade destino de uma viagem */
 public class Setpoint {
   private Cities sourceCity;
   private Cities destinationCity;

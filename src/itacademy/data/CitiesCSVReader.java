@@ -10,6 +10,7 @@ import itacademy.model.cities.Cities;
 
 public class CitiesCSVReader {
 
+  /* Constantes de diretório para leitura do arquivo CSV */
   private static final String LOCAL_PROJECT_DIRECTORY = System.getProperty("user.dir");
   private static final String PATH_TO_CSV = LOCAL_PROJECT_DIRECTORY.concat("\\src\\itacademy\\data");
   private static final String CSV_NAME = "dnit_distancias.csv";
@@ -25,6 +26,9 @@ public class CitiesCSVReader {
       BufferedReader buffer = new BufferedReader(new FileReader(FULLPATH));
       skipHeaderLine(buffer);
 
+      /* A cada iteração no loop, 
+      uma linha será pulada até achar a cidade origem na verificação da variável
+       "isSourceCityRow" */
       while ((currentRowData = buffer.readLine()) != null) {
         boolean isSourceCityRow = currentRowIndex == firstCity.get();
 

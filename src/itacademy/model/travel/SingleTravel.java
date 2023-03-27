@@ -3,7 +3,6 @@ package itacademy.model.travel;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 import itacademy.common.utils.ListUtils;
@@ -11,7 +10,6 @@ import itacademy.model.cities.Cities;
 import itacademy.model.items.Chair;
 import itacademy.model.items.Freezer;
 import itacademy.model.items.Item;
-import itacademy.model.items.ItemNames;
 import itacademy.model.items.Lighting;
 import itacademy.model.items.Refrigerator;
 import itacademy.model.items.SmartPhone;
@@ -20,6 +18,8 @@ import itacademy.model.trucks.BigTruck;
 import itacademy.model.trucks.MediumTruck;
 import itacademy.model.trucks.SmallTruck;
 import itacademy.model.trucks.Truck;
+
+/* Classe que armazena dados sobre uma viagem de ponto A até B */
 
 public class SingleTravel {
 
@@ -238,6 +238,9 @@ public class SingleTravel {
     return trucks;
   }
 
+  public double getAveragePricePerKilometer() {
+    return this.getPrice() / this.getDistance();
+  } 
   @Override
   public String toString() {
     return "SingleTravel [setpoint=" + setpoint + ", initialItems=" + initialItems + ", outputItems=" + outputItems

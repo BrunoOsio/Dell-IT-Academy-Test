@@ -8,6 +8,9 @@ import java.util.Scanner;
 import itacademy.model.cities.Cities;
 import itacademy.model.items.Item;
 import itacademy.model.items.ItemNames;
+import itacademy.model.trucks.Truck;
+
+/* Classe criada para facilitar a produção da interface para o usuário */
 
 public class IoUtils {
 
@@ -52,6 +55,71 @@ public class IoUtils {
 
       try {
         boolean isNumber = keyboard.matches("^[0-9]+$");
+
+        if (!isNumber) {
+          text("Digite um número válido");
+          continue;
+        }
+
+        validInput = true;
+        number = Integer.parseInt(keyboard);
+
+      } catch (NumberFormatException e) {
+        e.printStackTrace();
+      }
+    }
+
+    return number;
+  }
+
+  public static int inputMenuChoose(String message) {
+
+    int number = 0;
+    boolean validInput = false;
+
+    while (!validInput) {
+      String keyboard = inputText(message);
+
+      try {
+        boolean isNumber = keyboard.matches("^[1-4]+$");
+
+        if (!isNumber) {
+          text("Digite um número válido");
+          continue;
+        }
+
+        validInput = true;
+        number = Integer.parseInt(keyboard);
+
+      } catch (NumberFormatException e) {
+        e.printStackTrace();
+      }
+    }
+
+    return number;
+  }
+
+  public static Truck inputTruck() {
+    space();
+
+    int selectedTruck = inputTruckNumber("");
+
+    Truck truck = Truck.getByIndex(selectedTruck);
+
+    return truck;
+  }
+
+
+  private static int inputTruckNumber(String message) {
+
+    int number = 0;
+    boolean validInput = false;
+
+    while (!validInput) {
+      String keyboard = inputText(message);
+
+      try {
+        boolean isNumber = keyboard.matches("^[1-3]+$");
 
         if (!isNumber) {
           text("Digite um número válido");
