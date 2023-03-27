@@ -435,6 +435,15 @@ public class Main {
       
       IoUtils.space();
       IoUtils.waitForEnterPress();
+      IoUtils.line();
+
+      IoUtils.text("Resultado final das viagens: ");
+      System.out.printf("Preço Total: R$%.2f\n", h.getPrice());
+      System.out.printf("Distância Total: %.2f km\n", h.getDistance());
+      IoUtils.line();
+
+      IoUtils.space();
+      IoUtils.waitForEnterPress();
     });
   }
 
